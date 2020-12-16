@@ -1,0 +1,30 @@
+nav.tabs ul {
+  padding:0px;
+  margin:0px;
+  background-color:#EDEDED;
+  list-style:none;
+}
+
+nav.tabs ul li {
+  display: inline;
+}
+
+nav.tabs ul li a {
+  padding: 2px 10px;
+  display: inline-block;
+  background-color:#EDEDED;
+  color: #333;
+  text-decoration: none;
+  border-bottom:3px solid #EDEDED;
+}
+
+nav.tabs ul li a:hover,
+nav.tabs ul li a.active {
+  background-color:#D6D6D6;
+  color: #6D6D6D;
+  border-bottom:3px solid #EA0000;
+}
+
+nav.tabs ul li a.active {
+  font-weight: bold;
+}
