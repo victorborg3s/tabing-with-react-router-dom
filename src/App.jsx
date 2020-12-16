@@ -25,7 +25,7 @@ function App() {
           </ul>
         </nav>
         <AppRoutes
-          addTab={(tabObject) => setTabs([...tabs, tabObject])}
+          addTab={(tabTitle, tabUrl) => setTabs([...tabs, { title: tabTitle, url: tabUrl }])}
         />
       </BrowserRouter>
     </div>

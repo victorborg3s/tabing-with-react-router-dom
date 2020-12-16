@@ -4,9 +4,9 @@ import { HomePage } from '../pages';
 
 function AppRoutes({ addTab }) {
   const createNewTab = (history) => {
-    return (tabObject) => {
-      addTab(tabObject);
-      history.push('/products');
+    return (tabTitle, tabUrl) => {
+      addTab(tabTitle, tabUrl);
+      history.push(tabUrl);
     };
   };
   return [

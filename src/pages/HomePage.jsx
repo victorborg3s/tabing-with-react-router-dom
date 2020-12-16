@@ -4,12 +4,12 @@ function HomePage({ createNewTab }) {
   return (
     <article>
       <button type="button" onClick={
-        () => createNewTab({ url: '/products', title: 'Products' })
+        () => createNewTab('Products', '/products')
       }>
         Open Products tab
       </button>
       <button type="button" onClick={
-        () => createNewTab({ url: '/help', title: 'Help' })
+        () => createNewTab('Help', '/help')
       }>
         Open Help tab
       </button>
