@@ -10,13 +10,13 @@ function AppRoutes({ addTab }) {
     };
   };
   return [
-    <Route exact path="/" render={({ history }) => (
+    <Route key="/" exact path="/" render={({ history }) => (
       <HomePage createNewTab={createNewTab(history)} />
     )} />,
-    <Route exact path="/products">
+    <Route key="/products" exact path="/products">
       <article>this is Products page</article>
     </Route>,
-    <Route exact path="/help">
+    <Route key="/help" exact path="/help">
       <article>this is Help page</article>
     </Route>,
   ];

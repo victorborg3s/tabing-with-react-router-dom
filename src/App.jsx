@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { BrowserRouter, NavLink } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import AppRoutes from './routes';
+import { Tabs } from './components';
 
 import './App.css';
 
@@ -9,23 +10,29 @@ function App() {
     url: '/',
     title: 'Home',
   }]);
+  const addTab = (tabTitle, tabUrl) => setTabs([...tabs, { title: tabTitle, url: tabUrl }]);
+  const closeTabByUrl = (history, tabUrl) => {
+    const indexToRemove = tabs.findIndex((tab) => tab.url === tabUrl);
+    if (indexToRemove > -1) {
+      const modifiedTabs = [...tabs];
+      modifiedTabs.splice(indexToRemove, 1);
+      setTabs(modifiedTabs);
+      if (tabUrl === history.location.pathname) {
+        history.push('/');
+      }
+    }
+  };
+
   return (
     <div className="App">
       <header className="App-header">
         <h1>Tabing with react-router-dom</h1>
       </header>
       <BrowserRouter>
-        <nav className="tabs">
-          <ul>
-            {
-              tabs.map(tab => (
-                <li><NavLink exact to={tab.url} activeClassName="active">{tab.title}</NavLink></li>
-              ))
-            }
-          </ul>
-        </nav>
+        <Tabs tabs={tabs} closeTabByUrl={closeTabByUrl} />
         <AppRoutes
-          addTab={(tabTitle, tabUrl) => setTabs([...tabs, { title: tabTitle, url: tabUrl }])}
+          addTab={addTab}
+          closeTabByUrl={closeTabByUrl}
         />
       </BrowserRouter>
     </div>
