@@ -10,7 +10,12 @@ function App() {
     url: '/',
     title: 'Home',
   }]);
-  const addTab = (tabTitle, tabUrl) => setTabs([...tabs, { title: tabTitle, url: tabUrl }]);
+  const addTab = (tabTitle, tabUrl) => {
+    const tabIndex = tabs.findIndex((tab) => tab.url === tabUrl);
+    if (tabIndex === -1) {
+      setTabs([...tabs, { title: tabTitle, url: tabUrl }]);
+    }
+  };
   const closeTabByUrl = (history, tabUrl) => {
     const indexToRemove = tabs.findIndex((tab) => tab.url === tabUrl);
     if (indexToRemove > -1) {
