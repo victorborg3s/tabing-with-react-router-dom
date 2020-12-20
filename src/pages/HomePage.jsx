@@ -1,15 +1,20 @@
 import React from 'react';
 
-function HomePage({ createNewTab }) {
+function HomePage({ navigateToTab }) {
   return (
     <article>
       <button type="button" onClick={
-        () => createNewTab('Products', '/products')
+        () => navigateToTab('/products/A')
       }>
-        Open Products tab
+        Open Products A tab
       </button>
       <button type="button" onClick={
-        () => createNewTab('Help', '/help')
+        () => navigateToTab('/products/B')
+      }>
+        Open Products B tab
+      </button>
+      <button type="button" onClick={
+        () => navigateToTab('/help')
       }>
         Open Help tab
       </button>

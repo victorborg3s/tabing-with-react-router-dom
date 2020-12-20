@@ -36,8 +36,8 @@ function App() {
       <BrowserRouter>
         <Tabs tabs={tabs} closeTabByUrl={closeTabByUrl} />
         <AppRoutes
+          tabs={tabs}
           addTab={addTab}
-          closeTabByUrl={closeTabByUrl}
         />
       </BrowserRouter>
     </div>
